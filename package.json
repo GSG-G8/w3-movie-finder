@@ -1,0 +1,22 @@
+{
+  "name": "w3-movie-finder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GSG-G8/w3-movie-finder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GSG-G8/w3-movie-finder/issues"
+  },
+  "homepage": "https://github.com/GSG-G8/w3-movie-finder#readme",
+  "devDependencies": {
+    "jest": "^25.1.0"
+  }
+}
