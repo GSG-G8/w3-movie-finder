@@ -9,6 +9,7 @@ function sendRequest(url, cbllback) {
   xhr.send();
 }
 
+
 const movieShow = document.querySelector('.movieshow');
 const searchBtn = document.querySelector('.search__button');
 searchBtn.addEventListener('click', search);
@@ -61,6 +62,7 @@ function createMovieElement(obj) {
   return resultDiv;
 }
 
+
 function renderMovies(arr) {
   movieShow.textContent = '';
   arr
@@ -70,7 +72,6 @@ function renderMovies(arr) {
       movieShow.appendChild(resultDiv);
     });
 }
-
 function selectMovie() {
   const url = `https://api.themoviedb.org/3/movie/${this.movieID}?api_key=${key.TMDB}&language=en-US`;
 
@@ -101,7 +102,26 @@ function selectMovie() {
     document.querySelector(
       '.details_imdb'
     ).href = `https://www.imdb.com/title/${response.imdb_id}`;
+    const soundtrackAPI = `http://ws.audioscrobbler.com/2.0/?method=album.search&album=${response.title}+soundtrack&api_key=${key.lastFM}&limit=4&format=json`
+    sendRequest(soundtrackAPI, function(res) {
+    document.querySelector('.soundtrack__container--img1').setAttribute('src', res.results.albummatches.album[0].image[3]['#text']);
+    document.querySelector('.soundtrack__container--title1').textContent = res.results.albummatches.album[0].name;
+    document.querySelector('.soundtrack__container--artist1').textContent = res.results.albummatches.album[0].artist;
+
+    document.querySelector('.soundtrack__container--img2').setAttribute('src', res.results.albummatches.album[1].image[3]['#text']);
+    document.querySelector('.soundtrack__container--title2').textContent = res.results.albummatches.album[1].name;
+    document.querySelector('.soundtrack__container--artist2').textContent = res.results.albummatches.album[1].artist;
+
+
+    document.querySelector('.soundtrack__container--img3').setAttribute('src', res.results.albummatches.album[2].image[3]['#text']);
+    document.querySelector('.soundtrack__container--title3').textContent = res.results.albummatches.album[2].name;
+    document.querySelector('.soundtrack__container--artist3').textContent = res.results.albummatches.album[2].artist;
+
+})
+
+    
   });
+
 
   //genres
 }
@@ -111,3 +131,5 @@ function minutesToString(min) {
   let h = (min / 60) | 0;
   return (h < 10 ? '0' + h : '') + ' : ' + (m < 10 ? '0' + m : m);
 }
+
+
