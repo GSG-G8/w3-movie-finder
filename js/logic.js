@@ -80,7 +80,8 @@ function selectMovie() {
     document.querySelector(
       '.movie_details_img'
     ).src = `https://image.tmdb.org/t/p/w500${response.poster_path}`;
-    document.querySelector('.details_title').textContent = response.title;
+    document.querySelector('.details_title').textContent =
+      response.title + '  (' + response.release_date.split('-')[0] + ')';
     document.querySelector('.details_overview').textContent = response.overview;
     document.querySelector('.details_language').textContent =
       response.original_language;
@@ -107,7 +108,5 @@ function selectMovie() {
 }
 
 function minutesToString(min) {
-  let m = min % 60;
-  let h = (min / 60) | 0;
-  return (h < 10 ? '0' + h : '') + ' : ' + (m < 10 ? '0' + m : m);
+  return ((min / 60) | 0) + 'h ' + (min % 60) + 'min';
 }
