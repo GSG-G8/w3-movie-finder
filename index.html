@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Movie Finder</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -17,46 +21,19 @@
       </div>
     </aside>
 
+    <header>
+      <input class="search-input" type="search" placeholder="..Title" />
+      <input class="year-input" type="search" placeholder="..Year" />
+      <button class="search-button">Search</button>
+    </header>
     <section class="movieshow">
       <div class="movieshow__container-movie">
         <img
           src="https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg"
         />
-        <h3>Title</h3>
-        <h2>Rate</h2>
-        <div>
-          <span>Add to whtch-list</span>
-        </div>
-      </div>
-      <div class="movieshow__container-movie">
-        <img
-          src="https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg"
-        />
-        <h3>Title</h3>
-        <h2>Rate</h2>
-        <div>
-          <span>Add to whtch-list</span>
-        </div>
-      </div>
-      <div class="movieshow__container-movie">
-        <img
-          src="https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg"
-        />
-        <h3>Title</h3>
-        <h2>Rate</h2>
-        <div>
-          <span>Add to whtch-list</span>
-        </div>
-      </div>
-      <div class="movieshow__container-movie">
-        <img
-          src="https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg"
-        />
-        <h3>Title</h3>
-        <h2>Rate</h2>
-        <div>
-          <span>Add to whtch-list</span>
-        </div>
+        <span class="movieshow__container-movie_rightspan">Title</span>
+        <span class="movieshow__container-movie_leftspan">Rate</span>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
       </div>
     </section>
 
