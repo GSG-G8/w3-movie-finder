@@ -24,9 +24,10 @@
 
       <div class="search__Name">
         <div>
-          <label for="search" class="label">search</label>
-          <input class="search__input" id="search" placeholder="..Title" />
-          <input class="search__input" id="search" placeholder="..Year" />
+          <label for="search-name" class="label">search</label>
+          <input class="search__input" id="search-name" placeholder="..Film" />
+          <label for="search-year" class="label">search</label>
+          <input class="search__input" id="search-year" placeholder="..Year" />
           <button class="search__button">Search</button>
         </div>
         <div>
@@ -75,7 +76,7 @@
     </section>
 
     <!-- start Movie Details show -->
-    <div id="myModal" class="movie">
+    <div id="myModal" class="movie" >
      <div class="movie_content">
         <div class="movie_content_details">
           <img class="movie_details_img" src="https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg">
@@ -83,14 +84,18 @@
             <h1>Movie Title</h1>
             <p>During the 1980s, a failed stand-up comedian is driven insane and turns to a life of crime and chaos in Gotham City while becoming an infamous psychopathic crime figure.</p>
             <h4>original language: En</h4>
-            <h4>rateing</h4>
-            <h4>release date:</h4>
-            <h4>imdb link</h4>
+              <h4>rateing:</h4>
+              <h4>run time:</h4>
+              <h4>vote count:</h4>
+            <h4>release date:</h4> 
+            <h4>imdb link:</h4>
+            <h4>genres:</h4>
+            <h4>country:</h4>
           </div>
         </div>
         <div class="movie_content_relates">
         </div>
-        <span class="movie_content_span">x</span>
+        <span class="movie_content_span" id="close">x</span>
       </div> 
     </div>
     <!-- End Movie Details show -->
