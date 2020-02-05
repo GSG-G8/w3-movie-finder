@@ -21,7 +21,6 @@
       </div>
     </aside>
     <section class="search">
-
       <div class="search__Name">
         <div>
           <label for="search-name" class="label">search</label>
@@ -63,32 +62,73 @@
       </div>
     </section>
 
-    <section class="movieshow">
-      
-    </section>
+    <section class="movieshow"></section>
 
     <!-- start Movie Details show -->
-    <div id="myModal" class="movie" >
-     <div class="movie_content">
+    <div id="myModal" class="movie">
+      <div class="movie_content">
         <div class="movie_content_details">
-          <img class="movie_details_img" src="https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg">
+          <img
+            class="movie_details_img"
+            src="https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg"
+          />
           <div class="movie_details_info">
-            <h1>Movie Title</h1>
-            <p>During the 1980s, a failed stand-up comedian is driven insane and turns to a life of crime and chaos in Gotham City while becoming an infamous psychopathic crime figure.</p>
-            <h4>original language: En</h4>
-              <h4>rateing:</h4>
-              <h4>run time:</h4>
-              <h4>vote count:</h4>
-            <h4>release date:</h4> 
-            <h4>imdb link:</h4>
-            <h4>genres:</h4>
-            <h4>country:</h4>
+            <h1 class="details_title">Movie Title</h1>
+            <p class="details_overview">
+              During the 1980s, a failed stand-up comedian is driven insane and
+              turns to a life of crime and chaos in Gotham City while becoming
+              an infamous psychopathic crime figure.
+            </p>
+            <table>
+              <tr>
+                <td class="col1">original language</td>
+                <td><span class="details_language"></span></td>
+              </tr>
+              <tr>
+                <td class="col1">rateing</td class="col1">
+                <td><span class="details_rating"></span></td>
+              </tr>
+              <tr>
+                <td class="col1">vote count</td class="col1">
+                <td><span class="details_votecount"></span></td>
+              </tr>
+              <tr>
+                <td class="col1">run time</td>
+                <td><span class="details_runtime"></span></td>
+              </tr>
+              <tr>
+                <td class="col1">release date</td class="col1">
+                <td><span class="details_date"></span></td>
+              </tr>
+              <tr>
+                <td class="col1">country</td class="col1">
+                <td><span class="details_country"></span></td>
+              </tr>
+              <tr>
+                <td class="col1">genres</td class="col1">
+                <td><span class="details_genres"></span></td>
+              </tr>
+              <tr>
+                <td class="col1">imdb link</td class="col1">
+                <td><a class="details_imdb" href="#">imdb link</a></td>
+              </tr>
+            </table>
+
+            <!--
+            <h4>original language: <span class="details_language">En</span></h4>
+            <h4>rateing: <span class="details_rating"></span></h4>
+            <h4>vote count: <span class="details_votecount"></span></h4>
+            <h4>run time: <span class="details_runtime"></span></h4>
+            <h4>release date: <span class="details_date"></span></h4>
+            <h4>country: <span class="details_country"></span></h4>
+            <h4>genres: <span class="details_genres"></span></h4>
+            <h4><a class="details_imdb" href="#">imdb link</a></h4>
+            -->
           </div>
         </div>
-        <div class="movie_content_relates">
-        </div>
+        <div class="movie_content_relates"></div>
         <span class="movie_content_span" id="close">x</span>
-      </div> 
+      </div>
     </div>
     <!-- End Movie Details show -->
 
