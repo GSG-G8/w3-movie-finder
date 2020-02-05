@@ -29,7 +29,7 @@ function createMovieElement(obj) {
   const resultDiv = document.createElement('div');
   resultDiv.classList.add('movieshow__container-movie');
 
-  const imgUrl = `https://image.tmdb.org/t/p/w500${obj.poster_path}`;
+  const imgUrl = `https://image.tmdb.org/t/p/w300${obj.poster_path}`;
   const img = document.createElement('img');
   img.setAttribute('src', `${imgUrl}`);
   resultDiv.appendChild(img);
@@ -42,6 +42,10 @@ function createMovieElement(obj) {
   const rateSpan = document.createElement('span');
   rateSpan.classList.add('movieshow__container-movie_leftspan');
 
+  const favoSpan = document.createElement('i');
+  favoSpan.classList.add('fa', 'fa-heart-o', 'add-to-favorite');
+  resultDiv.appendChild(favoSpan); 
+  
   const numberOfStar = Math.floor(obj.vote_average / 2);
   for (let i = 0; i <= numberOfStar; i++) {
     const rateStar = document.createElement('i');
