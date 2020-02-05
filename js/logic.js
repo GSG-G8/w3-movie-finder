@@ -92,8 +92,9 @@ function selectMovie() {
     document.querySelector('.details_runtime').textContent = minutesToString(
       response.runtime
     );
-    document.querySelector('.details_country').textContent =
-      response.production_countries[0].name;
+    document.querySelector(
+      '.details_country'
+    ).textContent = response.production_countries.map(g => g.name).join(' , ');
     document.querySelector('.details_genres').textContent = response.genres
       .map(g => g.name)
       .join(' , ');
