@@ -49,6 +49,7 @@ function createMovieElement(obj) {
     rateStar.setAttribute('aria-hidden', 'true');
     rateSpan.appendChild(rateStar);
   }
+  resultDiv.appendChild(rateSpan);
   movieShow.appendChild(resultDiv);
 
   return resultDiv;
