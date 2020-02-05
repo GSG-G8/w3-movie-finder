@@ -10,8 +10,26 @@ function sendRequest(url, cbllback) {
 }
 
 const movieShow = document.querySelector('.movieshow');
+const searchBtn = document.querySelector('.search__button');
+searchBtn.addEventListener('click',search)
+function search(){
+const searchName = document.getElementById('search-name');
+const searchYear = document.getElementById('search-year');
+const TheUrl = `https://api.themoviedb.org/3/search/movie?api_key=${key.TMDB}&language=en-US&query=${searchName.value}&page=1&include_adult=false&year=${searchYear.value}`;
 
+sendRequest(TheUrl,(response)=>{
+  console.log(response)
+  
+  response.results.forEach(element => {
 
+    createMovieElement(element);
+    console.log(createMovieElement(element))
+    renderMovies(response.results);
+   
+  });
+})
+
+}
 
 function createMovieElement(obj) {
   const resultDiv = document.createElement('div');
@@ -37,14 +55,14 @@ function createMovieElement(obj) {
     rateStar.setAttribute('aria-hidden', 'true');
     rateSpan.appendChild(rateStar);
   }
-  resultDiv.appendChild(rateSpan);
+  movieShow.appendChild(resultDiv);
+
   return resultDiv;
 }
 
 
 function renderMovies(arr) {
   movieShow.textContent = '';
-
   arr.filter(m => m.poster_path != null).map(e => {
         const resultDiv = createMovieElement(e);
         movieShow.appendChild(resultDiv);
