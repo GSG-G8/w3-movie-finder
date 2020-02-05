@@ -37,3 +37,11 @@ function createMovieElement(obj) {
   resultDiv.appendChild(rateSpan);
   return resultDiv;
 }
+
+
+function renderMovies(arr) {
+  arr.filter(m => m.poster_path != null).map(e => {
+        const resultDiv = createMovieElement(e);
+        movieShow.appendChild(resultDiv);
+      });
+}
