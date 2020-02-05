@@ -53,8 +53,9 @@ body {
   display: flex;
   flex-wrap: wrap;
   width: 80%;
-  margin-left: 20%  ;
+  margin-left: 17%;
   justify-content: center;
+  margin-top: 25px;
 }
 
 .movieshow__container-movie {
