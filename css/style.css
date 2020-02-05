@@ -335,6 +335,22 @@ td {
   width: 30%;
   color: #800;
 }
+
+.soundtrack{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 22px;
+  justify-content: space-between;
+}
+
+.img-width {
+  height: 200px;
+  width: 200px;
+}
+
+.soundtrack__container--text{
+  text-align: center;
+}
 .back_to_home{
   display: none;
   position: absolute;
