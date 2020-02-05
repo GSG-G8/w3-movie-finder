@@ -11,6 +11,7 @@ function sendRequest(url, cbllback) {
 
 
 const movieShow = document.querySelector('.movieshow');
+const famousMovies = document.querySelector('.famousMovies');
 const searchBtn = document.querySelector('.search__button');
 searchBtn.addEventListener('click', search);
 function search() {
@@ -25,8 +26,17 @@ function search() {
     });
   });
 }
-
-function createMovieElement(obj) {
+function showTheMovies() {
+  const TheUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${key.TMDB}&language=en-US&page=1year=2019`;
+  sendRequest(TheUrl, response => {
+    response.results.forEach(element => {
+      createMovieElement(element);
+      renderMovies(response.results);
+    });
+  });
+}
+showTheMovies();
+function createMovieElement(obj ) {
   const resultDiv = document.createElement('div');
   resultDiv.classList.add('movieshow__container-movie');
 
@@ -72,6 +82,52 @@ function renderMovies(arr) {
       movieShow.appendChild(resultDiv);
     });
 }
+
+function createMovieElementFamous(obj ) {
+  const resultDiv = document.createElement('div');
+  resultDiv.classList.add('movieshow__container-movie');
+
+  const imgUrl = `https://image.tmdb.org/t/p/w300${obj.poster_path}`;
+  const img = document.createElement('img');
+  img.setAttribute('src', `${imgUrl}`);
+  resultDiv.appendChild(img);
+
+  const titleSpan = document.createElement('span');
+  titleSpan.textContent = obj.title;
+  titleSpan.classList.add('movieshow__container-movie_rightspan');
+  resultDiv.appendChild(titleSpan);
+
+  const rateSpan = document.createElement('span');
+  rateSpan.classList.add('movieshow__container-movie_leftspan');
+
+  const favoSpan = document.createElement('i');
+  favoSpan.classList.add('fa', 'fa-heart-o', 'add-to-favorite');
+  resultDiv.appendChild(favoSpan); 
+  
+  const numberOfStar = Math.floor(obj.vote_average / 2);
+  for (let i = 0; i <= numberOfStar; i++) {
+    const rateStar = document.createElement('i');
+    rateStar.classList.add('fa', 'fa-star');
+    rateStar.setAttribute('aria-hidden', 'true');
+    rateSpan.appendChild(rateStar);
+  }
+  resultDiv.appendChild(rateSpan);
+  famousMovies.appendChild(resultDiv);
+
+  return resultDiv;
+}
+
+
+function TopMovies() {
+  const TheUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${key.TMDB}&language=en-US&page=1year=2019`;
+  sendRequest(TheUrl, response => {
+    response.results.forEach(element => {
+      createMovieElementFamous(element);
+    });
+
+  });
+}
+
 function selectMovie() {
   const url = `https://api.themoviedb.org/3/movie/${this.movieID}?api_key=${key.TMDB}&language=en-US`;
 
@@ -81,7 +137,8 @@ function selectMovie() {
     document.querySelector(
       '.movie_details_img'
     ).src = `https://image.tmdb.org/t/p/w500${response.poster_path}`;
-    document.querySelector('.details_title').textContent = response.title;
+    document.querySelector('.details_title').textContent =
+      response.title + '  (' + response.release_date.split('-')[0] + ')';
     document.querySelector('.details_overview').textContent = response.overview;
     document.querySelector('.details_language').textContent =
       response.original_language;
@@ -127,9 +184,7 @@ function selectMovie() {
 }
 
 function minutesToString(min) {
-  let m = min % 60;
-  let h = (min / 60) | 0;
-  return (h < 10 ? '0' + h : '') + ' : ' + (m < 10 ? '0' + m : m);
+  return ((min / 60) | 0) + 'h ' + (min % 60) + 'min';
 }
 
 

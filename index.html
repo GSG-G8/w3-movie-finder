@@ -15,8 +15,7 @@
     <aside class="aside">
       <span class="aside__logo">Movie Finder</span>
       <div class="aside__child">
-        <span class="aside__category">Films</span>
-        <span class="aside__category">Series</span>
+        <span class="aside__category" id="Films">Top Movies</span>
         <span class="aside__category">My list</span>
       </div>
     </aside>
@@ -30,39 +29,22 @@
           <button class="search__button">Search</button>
         </div>
         <div>
-          <a class="Search__bar">Social</a>
-          <a class="Search__bar">Videos</a>
-          <a class="Search__bar">News</a>
+          <a class="Search__bar">Get Popular</a>
+          <a class="Search__bar">Get Top Rated</a>
+          <a class="Search__bar">Get Upcoming</a>
           <a class="Search__bar">About</a>
         </div>
       </div>
 
-      <div class="search__selected">
-        <label for="Dselect" class="label">Dselect</label>
-        <select class="selected-select" id="Dselect">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="mercedes">Mercedes</option>
-          <option value="audi">Audi</option>
-        </select>
-
-        <select class="selected-select" id="Dselect">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="mercedes">Mercedes</option>
-          <option value="audi">Audi</option>
-        </select>
-
-        <select class="selected-select" id="Dselect">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="mercedes">Mercedes</option>
-          <option value="audi">Audi</option>
-        </select>
-      </div>
     </section>
 
-    <section class="movieshow"></section>
+    <section class="movieshow">
+      
+    </section>
+    <span class="back_to_home">Back To Home</span>
+    <section class="famousMovies">
+
+    </section>
 
     <!-- start Movie Details show -->
     <div id="myModal" class="movie">
@@ -147,9 +129,10 @@
             
           </div>
         </div>
-        <div class="movie_content_relates"></div>
-        <span class="movie_content_span" id="close">x</span>
-      </div>
+        <div class="movie_content_relates">
+        </div>
+        <span class="movie_content_span" id="closeDet">x</span>
+      </div> 
     </div>
     <!-- End Movie Details show -->
 
