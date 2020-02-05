@@ -1,32 +1,30 @@
 * {
   margin: 0;
 }
-.aside{
+.aside {
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(rgb(111, 0, 255), rgb(3, 9, 87)) ;
+  background-image: linear-gradient(rgb(111, 0, 255), rgb(3, 9, 87));
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   padding: 0.5rem;
-
 }
-.aside__logo{
+.aside__logo {
   font-size: 1.7rem;
   margin-bottom: 8rem;
   margin-top: 1rem;
   color: white;
   font-family: monospace;
 }
-.aside__child{
+.aside__child {
   display: flex;
   flex-direction: column;
-align-items: flex-start;
-margin-left: 1rem;
-
+  align-items: flex-start;
+  margin-left: 1rem;
 }
-.aside__category{
+.aside__category {
   font-size: 1.5rem;
   font-weight: bold;
   color: rgb(255, 255, 255);
@@ -51,47 +49,34 @@ margin-left: 1rem;
   margin-bottom: 30px;
   text-align: center;
   padding-bottom: 15px;
+  position: relative;
+}
+
+.movieshow__container-movie_rightspan {
+  float: left;
+  padding-left: 20px;
+  margin-top: 15px;
+}
+
+.movieshow__container-movie_leftspan {
+  float: right;
+  padding-right: 20px;
+  margin-top: 15px;
+}
+
+.fa {
+  color: yellow;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.fa-active {
+  background-color: yellow;
 }
 
 .movieshow__container-movie img {
   width: 100%;
-  border-radius: 15px;
-}
-
-.movieshow__container-movie img:hover {
-  transform: scale(1.1);
-  transition: 0.7s;
-}
-
-.movieshow__container-movie h3 {
-  width: 100%;
-  text-align: center;
-  font-size: 15px;
-  color: white;
-}
-.movieshow__container-movie h2 {
-  width: 100%;
-  text-align: center;
-  font-size: 25px;
-  letter-spacing: 2px;
-  color: white;
-}
-
-.movieshow__container-movie div {
-  width: 100%;
-  margin: 8px auto;
-  text-align: center
-}
-
-.movieshow__container-movie div span {
-  display: inline-block;
-  color: white;
-  font-weight: bold;
-  border: 1px solid;
-  padding: 5px;
-  margin: 0 auto;
-  width: 125px;
-  text-align: center;
+  height: 320px;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -116,6 +101,14 @@ margin-left: 1rem;
     margin-bottom: 25px;
     background-color: rgb(52, 59, 148);
   }
-.aside__category:hover{
-  color: white;
+  .aside__category:hover {
+    color: white;
+  }
+}
+
+header {
+  margin-left: 220px;
+  height: 50px;
+  background-color: aqua;
+  padding: 10px;
 }
