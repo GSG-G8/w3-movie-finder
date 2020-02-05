@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Movie Finder</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -17,15 +21,14 @@
       </div>
     </aside>
     <section class="search">
+
       <div class="search__Name">
         <div>
-        <label for="search" >search</label><input
-          type="text"
-          class="search__input"
-          placeholder="Find what you want"
-          id="search"
-        />
-      </div>
+          <label for="search" class="label">search</label>
+          <input class="search__input" id="search" placeholder="..Title" />
+          <input class="search__input" id="search" placeholder="..Year" />
+          <button class="search__button">Search</button>
+        </div>
         <div>
           <a class="Search__bar">Social</a>
           <a class="Search__bar">Videos</a>
@@ -33,36 +36,24 @@
           <a class="Search__bar">About</a>
         </div>
       </div>
+
       <div class="search__selected">
-        <select class="selected-select">
+        <label for="Dselect" class="label">Dselect</label>
+        <select class="selected-select" id="Dselect">
           <option value="volvo">Volvo</option>
           <option value="saab">Saab</option>
           <option value="mercedes">Mercedes</option>
           <option value="audi">Audi</option>
         </select>
 
-        <select class="selected-select">
+        <select class="selected-select" id="Dselect">
           <option value="volvo">Volvo</option>
           <option value="saab">Saab</option>
           <option value="mercedes">Mercedes</option>
           <option value="audi">Audi</option>
         </select>
 
-        <select class="selected-select">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="mercedes">Mercedes</option>
-          <option value="audi">Audi</option>
-        </select>
-
-        <select class="selected-select">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="mercedes">Mercedes</option>
-          <option value="audi">Audi</option>
-        </select>
-
-        <select class="selected-select">
+        <select class="selected-select" id="Dselect">
           <option value="volvo">Volvo</option>
           <option value="saab">Saab</option>
           <option value="mercedes">Mercedes</option>
@@ -75,42 +66,11 @@
       <div class="movieshow__container-movie">
         <img
           src="https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg"
-        alt="image"/>
-        <h3>Title</h3>
-        <h2>Rate</h2>
-        <div>
-          <span>Add to whtch-list</span>
-        </div>
-      </div>
-      <div class="movieshow__container-movie">
-        <img
-          src="https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg"
-          alt="image"/>
-        <h3>Title</h3>
-        <h2>Rate</h2>
-        <div>
-          <span>Add to whtch-list</span>
-        </div>
-      </div>
-      <div class="movieshow__container-movie">
-        <img
-          src="https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg"
-          alt="image"/>
-        <h3>Title</h3>
-        <h2>Rate</h2>
-        <div>
-          <span>Add to whtch-list</span>
-        </div>
-      </div>
-      <div class="movieshow__container-movie">
-        <img
-          src="https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg"
-          alt="image"/>
-        <h3>Title</h3>
-        <h2>Rate</h2>
-        <div>
-          <span>Add to whtch-list</span>
-        </div>
+          alt="image"
+        />
+        <span class="movieshow__container-movie_rightspan">Title</span>
+        <span class="movieshow__container-movie_leftspan">Rate</span>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
       </div>
     </section>
 
