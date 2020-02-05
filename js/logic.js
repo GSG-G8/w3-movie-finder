@@ -9,6 +9,9 @@ function sendRequest(url, cbllback) {
   xhr.send();
 }
 
+const movieShow = document.querySelector('.movieshow');
+
+
 
 function createMovieElement(obj) {
   const resultDiv = document.createElement('div');
@@ -40,6 +43,8 @@ function createMovieElement(obj) {
 
 
 function renderMovies(arr) {
+  movieShow.textContent = '';
+
   arr.filter(m => m.poster_path != null).map(e => {
         const resultDiv = createMovieElement(e);
         movieShow.appendChild(resultDiv);
