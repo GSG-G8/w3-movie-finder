@@ -32,6 +32,8 @@ function createMovieElement(obj) {
   const imgUrl = `https://image.tmdb.org/t/p/w300${obj.poster_path}`;
   const img = document.createElement('img');
   img.setAttribute('src', `${imgUrl}`);
+  img.movieID = obj.id;
+  img.onclick = selectMovie;
   resultDiv.appendChild(img);
 
   const titleSpan = document.createElement('span');
@@ -44,8 +46,8 @@ function createMovieElement(obj) {
 
   const favoSpan = document.createElement('i');
   favoSpan.classList.add('fa', 'fa-heart-o', 'add-to-favorite');
-  resultDiv.appendChild(favoSpan); 
-  
+  resultDiv.appendChild(favoSpan);
+
   const numberOfStar = Math.floor(obj.vote_average / 2);
   for (let i = 0; i <= numberOfStar; i++) {
     const rateStar = document.createElement('i');
@@ -67,4 +69,45 @@ function renderMovies(arr) {
       const resultDiv = createMovieElement(e);
       movieShow.appendChild(resultDiv);
     });
+}
+
+function selectMovie() {
+  const url = `https://api.themoviedb.org/3/movie/${this.movieID}?api_key=${key.TMDB}&language=en-US`;
+
+  document.querySelector('.movie').style.display = 'block';
+
+  sendRequest(url, function(response) {
+    document.querySelector(
+      '.movie_details_img'
+    ).src = `https://image.tmdb.org/t/p/w500${response.poster_path}`;
+    document.querySelector('.details_title').textContent = response.title;
+    document.querySelector('.details_overview').textContent = response.overview;
+    document.querySelector('.details_language').textContent =
+      response.original_language;
+    document.querySelector('.details_rating').textContent =
+      response.vote_average;
+    document.querySelector('.details_votecount').textContent =
+      response.vote_count;
+    document.querySelector('.details_date').textContent = response.release_date;
+    document.querySelector('.details_runtime').textContent = minutesToString(
+      response.runtime
+    );
+    document.querySelector(
+      '.details_country'
+    ).textContent = response.production_countries.map(g => g.name).join(' , ');
+    document.querySelector('.details_genres').textContent = response.genres
+      .map(g => g.name)
+      .join(' , ');
+    document.querySelector(
+      '.details_imdb'
+    ).href = `https://www.imdb.com/title/${response.imdb_id}`;
+  });
+
+  //genres
+}
+
+function minutesToString(min) {
+  let m = min % 60;
+  let h = (min / 60) | 0;
+  return (h < 10 ? '0' + h : '') + ' : ' + (m < 10 ? '0' + m : m);
 }
