@@ -1,7 +1,21 @@
-const CloseDet = document.getElementById('close');
-const movie = document.querySelector('.movie');
+const movieDom = document.querySelector('.movie');
+const FilmsDom = document.getElementById('Films');
+const CloseDetDom = document.getElementById('closeDet');
+const famousMoviesDom = document.querySelector('.famousMovies');
+const movieshowDom = document.querySelector('.movieshow');
+const searchDom = document.querySelector('.search');
 
-CloseDet.addEventListener('click',()=>{
-    movie.style.display = 'none';
+CloseDetDom.addEventListener('click',()=>{
+    movieDom.style.display = 'none';
 })
+
+FilmsDom.addEventListener('click',()=>{
+    movieDom.style.display = 'none';
+    famousMoviesDom.style.display ='flex';
+    movieshowDom.style.display ='none';
+    searchDom.style.display = 'none';
+    TopMovies();
+})
+
+
 

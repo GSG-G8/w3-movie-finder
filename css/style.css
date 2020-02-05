@@ -48,7 +48,6 @@ body {
 .aside__category:hover {
   color: rgb(240, 236, 0);
 }
-
 .movieshow {
   display: flex;
   flex-wrap: wrap;
@@ -227,7 +226,7 @@ body {
 
 /* Start style Movie Details Movie  */
 .movie {
-  display: block; /* Hidden by default */
+  display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -312,4 +311,12 @@ color: rgb(189, 2, 2);
   color: white;
   padding: 5px;
   border-radius: 11px;
+}
+
+.famousMovies {
+  display: none;
+  flex-wrap: wrap;
+  width: 80%;
+  margin-left: 20%  ;
+  justify-content: center;
 }
