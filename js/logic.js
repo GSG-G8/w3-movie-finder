@@ -25,6 +25,35 @@ function search() {
       renderMovies(response.results);
     });
   });
+}key.TMDB
+function popularMovies() {
+  const TheUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${key.TMDB}&language=en-US&page=1`;
+  sendRequest(TheUrl, response => {
+    response.results.forEach(element => {
+      createMovieElement(element);
+      renderMovies(response.results);
+    });
+  });
+}
+function RatedMovies() {
+  const TheUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${key.TMDB}&language=en-US&page=1
+  `;
+  sendRequest(TheUrl, response => {
+    response.results.forEach(element => {
+      createMovieElement(element);
+      renderMovies(response.results);
+    });
+  });
+}
+
+function UpcomingMovies() {
+  const TheUrl = `https://api.themoviedb.org/3/movie/upcoming?api_key=${key.TMDB}&language=en-US&page=1`;
+  sendRequest(TheUrl, response => {
+    response.results.forEach(element => {
+      createMovieElement(element);
+      renderMovies(response.results);
+    });
+  });
 }
 function showTheMovies() {
   const TheUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${key.TMDB}&language=en-US&page=1year=2019`;
@@ -35,6 +64,8 @@ function showTheMovies() {
     });
   });
 }
+
+
 showTheMovies();
 function createMovieElement(obj ) {
   const resultDiv = document.createElement('div');
