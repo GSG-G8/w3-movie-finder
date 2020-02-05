@@ -16,12 +16,12 @@ the number of movies is getting bigger every year, and it becomes harder to find
 
 ## What
 
-Our website is a single page that that enables users to quickly find movies
+Our website is a single page that enables users to quickly find movies
 
 ## How
 
-we are using an API called "The Movie Database", its a community built movie and TV database
-we are also using "Last.fm" music service API to find soundtracks related to movies
+- we are using an API called "The Movie Database", its a community built movie and TV database
+- we are also using "Last.fm" music service API to find soundtracks related to movies
 
 ## User Journey
 
