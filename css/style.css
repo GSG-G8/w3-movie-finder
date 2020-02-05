@@ -303,3 +303,13 @@ color: rgb(189, 2, 2);
 
 /* End style Movie Details Movie  */
 
+.add-to-favorite {
+  position: absolute;
+  top: -5px;
+  right: 12px;
+  font-size: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px;
+  border-radius: 11px;
+}
