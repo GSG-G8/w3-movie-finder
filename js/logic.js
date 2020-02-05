@@ -9,6 +9,32 @@ function sendRequest(url, cbllback) {
   xhr.send();
 }
 
+const movieShow = document.querySelector('.movieshow');
+
+const searchButton = document.querySelector('.search-button');
+
+searchButton.onclick = () => {
+  const searchInput = document.querySelector('.search-input');
+  const yearInput = document.querySelector('.year-input');
+  const searchYearUrl = `https://api.themoviedb.org/3/search/movie?api_key=${key.TMDB}&language=en-US&query=${searchInput.value}&page=1&include_adult=false&year=${yearInput.value}`;
+  
+
+  sendRequest(searchYearUrl, response => {
+    renderMovies(response.results)
+  });
+}
+
+
+
+function renderMovies(arr) {
+  movieShow.textContent = '';
+  arr.filter(m => m.poster_path != null).map(e => {
+        const resultDiv = createMovieElement(e);
+        movieShow.appendChild(resultDiv);
+      });
+}
+
+
 
 function createMovieElement(obj) {
   const resultDiv = document.createElement('div');
