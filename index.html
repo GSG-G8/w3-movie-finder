@@ -12,13 +12,9 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <aside class="aside">
-      <span class="aside__logo">Movie Finder</span>
-      <div class="aside__child">
-        <span class="aside__category" id="Films">Top Movies</span>
-        <span class="aside__category">My list</span>
-      </div>
-    </aside>
+
+   <header>
+    <span class="aside__logo">Movie Finder</span>
     <section class="search">
       <div class="search__Name">
         <div>
@@ -28,20 +24,20 @@
           <input class="search__input" id="search-year" placeholder="..Year" />
           <button class="search__button">Search</button>
         </div>
-        <div>
-          <a class="Search__bar " id="Popular">Get Popular</a>
-          <a class="Search__bar" id="Rated"> Get Top Rated</a>
-          <a class="Search__bar" id="Upcoming">Get Upcoming</a>
-          <a class="Search__bar">About</a>
+        <div class="Search__bar" id="home">
+          <a class="Search__bar" id="Upcoming">Upcoming</a>
+          <a class="Search__bar " id="Popular">Popular</a>
+          <a class="Search__bar" id="Rated">Top Rated</a>
         </div>
       </div>
 
     </section>
+   </header>
 
     <section class="movieshow">
-      
     </section>
-    <span class="back_to_home">Back To Home</span>
+    <a class="next__Page" id="nextPage"  href="#home">next </a>
+    <a class="back__Page" id="backPage"  href="#home">back</a>
     <section class="famousMovies">
 
     </section>
@@ -95,38 +91,26 @@
                 <td><a class="details_imdb" href="#">imdb link</a></td>
               </tr>
             </table>
-            <h2>soundtrack</h2>
+            <h2 class="soundTrack__header">soundtrack : </h2>
 
             <div class="soundtrack">
               <div class="soundtrack__container">
                 <img src="https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg" class="soundtrack__container--img1 img-width" alt="soundtrack-movie">
-                <h4 class="soundtrack__container--title1">title</h2>
-                <h4 class="soundtrack__container--artist1">Artist</h2>
+                <h4 class="soundtrack__container--title1 title_sound">title</h2>
+                <h4 class="soundtrack__container--artist1 artist_sound">Artist</h2>
               </div>
               <div class="soundtrack__container">
                 <img src="https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg" class="soundtrack__container--img2 img-width" alt="soundtrack-movie">
-                <h4 class="soundtrack__container--title2">title</h2>
-                <h4 class="soundtrack__container--artist2">Artist</h2>
+                <h4 class="soundtrack__container--title2 title_sound">title</h2>
+                <h4 class="soundtrack__container--artist2 artist_sound">Artist</h2>
               </div>
               <div class="soundtrack__container">
                 <img src="https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg" class="soundtrack__container--img3 img-width" alt="soundtrack-movie">
-                <h4 class="soundtrack__container--title3">title</h2>
-                <h4 class="soundtrack__container--artist3">Artist</h2>
+                <h4 class="soundtrack__container--title3 title_sound">title</h2>
+                <h4 class="soundtrack__container--artist3 artist_sound">Artist</h2>
               </div>
 
             </div>
-      
-            <!--
-            <h4>original language: <span class="details_language">En</span></h4>
-            <h4>rateing: <span class="details_rating"></span></h4>
-            <h4>vote count: <span class="details_votecount"></span></h4>
-            <h4>run time: <span class="details_runtime"></span></h4>
-            <h4>release date: <span class="details_date"></span></h4>
-            <h4>country: <span class="details_country"></span></h4>
-            <h4>genres: <span class="details_genres"></span></h4>
-            <h4><a class="details_imdb" href="#">imdb link</a></h4>
-            -->
-            
           </div>
         </div>
         <div class="movie_content_relates">
@@ -134,6 +118,7 @@
         <span class="movie_content_span" id="closeDet">x</span>
       </div> 
     </div>
+
     <!-- End Movie Details show -->
 
     <script src="config.js"></script>
