@@ -1,3 +1,38 @@
+const movieShow = document.querySelector('.movieshow');
+const famousMovies = document.querySelector('.famousMovies');
+const searchBtn = document.querySelector('.search__button');
+let i = 1;
+const popularUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${
+  key.TMDB
+}&language=en-US&page=${i}`;
+const RatedUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${
+  key.TMDB
+}&language=en-US&page=${i}`;
+const upCominUrl = `https://api.themoviedb.org/3/movie/upcoming?api_key=${
+  key.TMDB
+}&language=en-US&page=${i}`;
+const TopMovie = `https://api.themoviedb.org/3/movie/popular?api_key=${key.TMDB}&language=en-US&page=2&year=2020`;
+const nextPage = document.getElementById('nextPage');
+const backPage = document.getElementById('backPage');
+
+nextPage.addEventListener('click', nextbb);
+function nextbb() {
+  if (i <= 1) {
+    i = 1;
+    backPage.style.display = "block";
+  }
+  i++;
+  search(i) ;
+}
+backPage.addEventListener('click', backbb);
+function backbb() {
+  if (i == 2) {
+    backPage.style.display = "none";
+  }
+  i--;
+  search(i) ;
+  // showTheMovies(popularUrl+i);
+}
 function sendRequest(url, cbllback) {
   const xhr = new XMLHttpRequest();
   xhr.onreadystatechange = () => {
@@ -9,65 +44,34 @@ function sendRequest(url, cbllback) {
   xhr.send();
 }
 
-
-const movieShow = document.querySelector('.movieshow');
-const famousMovies = document.querySelector('.famousMovies');
-const searchBtn = document.querySelector('.search__button');
 searchBtn.addEventListener('click', search);
-function search() {
+function search(i) {
+  Get_Popular.style.borderBottom = 'none';
+Get_Top_Rated.style.borderBottom = 'none';
+Get_Upcoming.style.borderBottom = 'none';
   const searchName = document.getElementById('search-name');
   const searchYear = document.getElementById('search-year');
-  const TheUrl = `https://api.themoviedb.org/3/search/movie?api_key=${key.TMDB}&language=en-US&query=${searchName.value}&page=1&include_adult=false&year=${searchYear.value}`;
-
-  sendRequest(TheUrl, response => {
+  const TheUrl = `https://api.themoviedb.org/3/search/movie?api_key=${key.TMDB}&language=en-US&query=${searchName.value}&page=1&include_adult=false&year=${searchYear.value}&page=`;
+  sendRequest(TheUrl+i, response => {
     response.results.forEach(element => {
       createMovieElement(element);
       renderMovies(response.results);
     });
   });
-}key.TMDB
-function popularMovies() {
-  const TheUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${key.TMDB}&language=en-US&page=1`;
-  sendRequest(TheUrl, response => {
+  nextPage.style.display = "block";
+}
+
+function showTheMovies(urlM) {
+  sendRequest(urlM, response => {
     response.results.forEach(element => {
       createMovieElement(element);
       renderMovies(response.results);
     });
   });
 }
-function RatedMovies() {
-  const TheUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${key.TMDB}&language=en-US&page=1
-  `;
-  sendRequest(TheUrl, response => {
-    response.results.forEach(element => {
-      createMovieElement(element);
-      renderMovies(response.results);
-    });
-  });
-}
+showTheMovies(TopMovie , 1);
 
-function UpcomingMovies() {
-  const TheUrl = `https://api.themoviedb.org/3/movie/upcoming?api_key=${key.TMDB}&language=en-US&page=1`;
-  sendRequest(TheUrl, response => {
-    response.results.forEach(element => {
-      createMovieElement(element);
-      renderMovies(response.results);
-    });
-  });
-}
-function showTheMovies() {
-  const TheUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${key.TMDB}&language=en-US&page=1year=2019`;
-  sendRequest(TheUrl, response => {
-    response.results.forEach(element => {
-      createMovieElement(element);
-      renderMovies(response.results);
-    });
-  });
-}
-
-
-showTheMovies();
-function createMovieElement(obj ) {
+function createMovieElement(obj) {
   const resultDiv = document.createElement('div');
   resultDiv.classList.add('movieshow__container-movie');
 
@@ -100,9 +104,9 @@ function createMovieElement(obj ) {
   resultDiv.appendChild(rateSpan);
   movieShow.appendChild(resultDiv);
 
+
   return resultDiv;
 }
-
 
 function renderMovies(arr) {
   movieShow.textContent = '';
@@ -112,51 +116,6 @@ function renderMovies(arr) {
       const resultDiv = createMovieElement(e);
       movieShow.appendChild(resultDiv);
     });
-}
-
-function createMovieElementFamous(obj ) {
-  const resultDiv = document.createElement('div');
-  resultDiv.classList.add('movieshow__container-movie');
-
-  const imgUrl = `https://image.tmdb.org/t/p/w300${obj.poster_path}`;
-  const img = document.createElement('img');
-  img.setAttribute('src', `${imgUrl}`);
-  resultDiv.appendChild(img);
-
-  const titleSpan = document.createElement('span');
-  titleSpan.textContent = obj.title;
-  titleSpan.classList.add('movieshow__container-movie_rightspan');
-  resultDiv.appendChild(titleSpan);
-
-  const rateSpan = document.createElement('span');
-  rateSpan.classList.add('movieshow__container-movie_leftspan');
-
-  const favoSpan = document.createElement('i');
-  favoSpan.classList.add('fa', 'fa-heart-o', 'add-to-favorite');
-  resultDiv.appendChild(favoSpan); 
-  
-  const numberOfStar = Math.floor(obj.vote_average / 2);
-  for (let i = 0; i <= numberOfStar; i++) {
-    const rateStar = document.createElement('i');
-    rateStar.classList.add('fa', 'fa-star');
-    rateStar.setAttribute('aria-hidden', 'true');
-    rateSpan.appendChild(rateStar);
-  }
-  resultDiv.appendChild(rateSpan);
-  famousMovies.appendChild(resultDiv);
-
-  return resultDiv;
-}
-
-
-function TopMovies() {
-  const TheUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${key.TMDB}&language=en-US&page=1year=2019`;
-  sendRequest(TheUrl, response => {
-    response.results.forEach(element => {
-      createMovieElementFamous(element);
-    });
-
-  });
 }
 
 function selectMovie() {
@@ -190,26 +149,42 @@ function selectMovie() {
     document.querySelector(
       '.details_imdb'
     ).href = `https://www.imdb.com/title/${response.imdb_id}`;
-    const soundtrackAPI = `http://ws.audioscrobbler.com/2.0/?method=album.search&album=${response.title}+soundtrack&api_key=${key.lastFM}&limit=4&format=json`
+    const soundtrackAPI = `http://ws.audioscrobbler.com/2.0/?method=album.search&album=${response.title}+soundtrack&api_key=${key.lastFM}&limit=4&format=json`;
     sendRequest(soundtrackAPI, function(res) {
-    document.querySelector('.soundtrack__container--img1').setAttribute('src', res.results.albummatches.album[0].image[3]['#text']);
-    document.querySelector('.soundtrack__container--title1').textContent = res.results.albummatches.album[0].name;
-    document.querySelector('.soundtrack__container--artist1').textContent = res.results.albummatches.album[0].artist;
+      document
+        .querySelector('.soundtrack__container--img1')
+        .setAttribute(
+          'src',
+          res.results.albummatches.album[0].image[3]['#text']
+        );
+      document.querySelector('.soundtrack__container--title1').textContent =
+        res.results.albummatches.album[0].name;
+      document.querySelector('.soundtrack__container--artist1').textContent =
+        res.results.albummatches.album[0].artist;
 
-    document.querySelector('.soundtrack__container--img2').setAttribute('src', res.results.albummatches.album[1].image[3]['#text']);
-    document.querySelector('.soundtrack__container--title2').textContent = res.results.albummatches.album[1].name;
-    document.querySelector('.soundtrack__container--artist2').textContent = res.results.albummatches.album[1].artist;
+      document
+        .querySelector('.soundtrack__container--img2')
+        .setAttribute(
+          'src',
+          res.results.albummatches.album[1].image[3]['#text']
+        );
+      document.querySelector('.soundtrack__container--title2').textContent =
+        res.results.albummatches.album[1].name;
+      document.querySelector('.soundtrack__container--artist2').textContent =
+        res.results.albummatches.album[1].artist;
 
-
-    document.querySelector('.soundtrack__container--img3').setAttribute('src', res.results.albummatches.album[2].image[3]['#text']);
-    document.querySelector('.soundtrack__container--title3').textContent = res.results.albummatches.album[2].name;
-    document.querySelector('.soundtrack__container--artist3').textContent = res.results.albummatches.album[2].artist;
-
-})
-
-    
+      document
+        .querySelector('.soundtrack__container--img3')
+        .setAttribute(
+          'src',
+          res.results.albummatches.album[2].image[3]['#text']
+        );
+      document.querySelector('.soundtrack__container--title3').textContent =
+        res.results.albummatches.album[2].name;
+      document.querySelector('.soundtrack__container--artist3').textContent =
+        res.results.albummatches.album[2].artist;
+    });
   });
-
 
   //genres
 }
@@ -217,5 +192,3 @@ function selectMovie() {
 function minutesToString(min) {
   return ((min / 60) | 0) + 'h ' + (min % 60) + 'min';
 }
-
-
